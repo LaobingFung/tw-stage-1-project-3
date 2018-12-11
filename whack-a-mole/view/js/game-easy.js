@@ -49,7 +49,8 @@ window.onload = function () {
      * 出洞.
      */
     function peep() {
-        const time = randomTime(200, 1000);
+        clearTimeout(moleWait);
+        const time = randomTime(600, 1000);
         const hole = randomHole(holes);
         comeOutAndStop(hole, time);
     }
@@ -88,10 +89,11 @@ window.onload = function () {
      * @param hole 地鼠所出地洞.
      * @param time 地鼠停留时间.
      */
+    let moleWait;
     function comeOutAndStop(hole, time) {
         // TODO: 写地鼠出洞并停留相应时间，如果游戏时间未结束(timeUp)，继续出洞(peep).
         hole.classList.add('up');
-        setTimeout(function() {
+        moleWait = setTimeout(function() {
             hole.classList.remove('up');
             if(timeUp === false) {
                 peep();
@@ -104,6 +106,15 @@ window.onload = function () {
      */
     moles.forEach(mole => mole.addEventListener('click', function (e) {
         // TODO: 在这里写用户点击地鼠发生的事.
+        let hole = holes[lastHole];
+        hole.classList.remove('up');
+        hitAndScore();
+        peep();
     }));
+
+    function hitAndScore() {
+        score += 1;
+        scoreBoard.innerText = score;
+    }
 
 };
