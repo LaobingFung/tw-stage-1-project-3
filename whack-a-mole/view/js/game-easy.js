@@ -76,7 +76,7 @@ window.onload = function() {
     score += 1;
     scoreBoard.innerText = score;
   }
-  moles.forEach(mole => mole.addEventListener('click', function(e) {.
+  moles.forEach(mole => mole.addEventListener('click', function(e) {
     let hole = holes[lastHole];
     hole.classList.remove('up');
     hitAndScore();
