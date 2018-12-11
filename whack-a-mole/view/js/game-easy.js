@@ -63,7 +63,7 @@ window.onload = function () {
      */
     function randomTime(min, max) {
         // TODO: 写生成随机数的逻辑，
-        return 0;
+        return time = min + Math.floor(Math.random() * (max - min));
     }
 
     /**
