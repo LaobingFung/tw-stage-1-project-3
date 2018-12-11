@@ -35,6 +35,10 @@ window.onload = function () {
 
         gameTimeCountDown = setTimeout(() => {
             // TODO: 写当游戏时间结束后要发生的事
+            startBtn.innerText = 'Replay';
+            startBtn.style.display = 'inline-block';
+            timeUp = true;
+            clearTimeout(moleWait);
         }, gameTime)
     }
 
@@ -46,6 +50,7 @@ window.onload = function () {
         score = 0;
         scoreBoard.innerText = score;
         clearTimeout(gameTimeCountDown);
+        timeUp = false;
     }
 
     /**
