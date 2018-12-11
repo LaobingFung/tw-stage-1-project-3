@@ -28,12 +28,12 @@ window.onload = function () {
         }, 700);
     }
 
-
+    let gameTimeCountDown;
     function startGame() {
         resetScoreAndTime();
         peep();
 
-        setTimeout(() => {
+        gameTimeCountDown = setTimeout(() => {
             // TODO: 写当游戏时间结束后要发生的事
         }, gameTime)
     }
@@ -43,6 +43,9 @@ window.onload = function () {
      */
     function resetScoreAndTime() {
         // TODO: 写游戏的初始化设置
+        score = 0;
+        scoreBoard.innerText = score;
+        clearTimeout(gameTimeCountDown);
     }
 
     /**
